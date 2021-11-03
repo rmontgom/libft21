@@ -6,7 +6,7 @@
 /*   By: rmontgom <rmontgom@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 23:50:38 by rmontgom          #+#    #+#             */
-/*   Updated: 2021/11/02 13:47:20 by rmontgom         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:30:01 by rmontgom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
 	i = 0;

@@ -40,12 +40,10 @@ int	ft_znak(int n)
 char	*ft_itoa(int n)
 {
 	int		len;
-	int		numb;
 	int		znak;
 	char	*str;
 
 	znak = ft_znak(n);
-	numb = n * znak;
 	len = ft_len(n);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)

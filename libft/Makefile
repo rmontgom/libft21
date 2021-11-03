@@ -37,27 +37,25 @@ SRCS = ft_atoi.c \
 
 OBJS = $(SRCS:.c=.o)
 
-PARALLEL ?= -j
-
 .PHONY: all clean fclean re
 
 all:	#$(NAME)
-		$(MAKE) $(PARALLEL) $(NAME)
+		$(MAKE) $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-		ar rc $(NAME) $(OBJS)
+		ar rcs $(NAME) $(OBJS)
 		ranlib $(NAME)
 		@echo "Libft compiled"
 
 %.o: %.c $(LIBFT)
-		clang $(FLAGS) -c $< -o $@
+		gcc $(FLAGS) -c $< -o $@
 
 clean:
-		@/bin/rm -f $(OBJS)
+		@rm -f $(OBJS)
 		@echo "Libft cleaned"
 
 fclean:	clean
-		@/bin/rm -f $(NAME)
+		@rm -f $(NAME)
 		@echo "Libft full cleaned"
 
 re:		fclean all
