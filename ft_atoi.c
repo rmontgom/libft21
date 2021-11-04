@@ -37,10 +37,3 @@ int	ft_atoi(const char *str)
 	else
 		return (nbr);
 }
-
-/*int	main()
-{
-	printf("%d", ft_atoi("9223abc"));
-	printf("%d", atoi("9223abc"));
-	return(0);
-}*/

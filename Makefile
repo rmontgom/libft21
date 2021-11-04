@@ -1,8 +1,6 @@
-NAME = libft.a
-LIBFT = libft.h
-FLAGS = -Wall -Wextra -Werror
+NAME	=	libft.a
 
-SRCS = ft_atoi.c \
+SRCS	= ft_atoi.c \
 	  ft_bzero.c \
 	  ft_isalnum.c \
 	  ft_isalpha.c \
@@ -15,6 +13,7 @@ SRCS = ft_atoi.c \
 	  ft_memmove.c \
 	  ft_memset.c \
 	  ft_strlcat.c \
+	  ft_strlcpy.c \
 	  ft_strchr.c \
 	  ft_strlen.c \
 	  ft_strrchr.c \
@@ -30,32 +29,32 @@ SRCS = ft_atoi.c \
 	  ft_split.c \
 	  ft_itoa.c \
 	  ft_strmapi.c \
+	  ft_striteri.c \
 	  ft_putchar_fd.c \
 	  ft_putendl_fd.c \
 	  ft_putstr_fd.c \
 	  ft_putnbr_fd.c \
 
-OBJS = $(SRCS:.c=.o)
+HEADER	=	libft.h
+OBJS		=	$(patsubst %.c, %.o, $(SRCS))
 
-.PHONY: all clean fclean re
+CC		=	gcc
+CFLAGS	=	-Wall -Wextra -Werror -I$(HEADER)
 
-all:	#$(NAME)
-		$(MAKE) $(NAME)
+.PHONY	:	all clean fclean re
 
-$(NAME): $(OBJS) $(LIBFT)
-		ar rcs $(NAME) $(OBJS)
-		ranlib $(NAME)
-		@echo "Libft compiled"
+all		:	$(NAME)
 
-%.o: %.c $(LIBFT)
-		gcc $(FLAGS) -c $< -o $@
+$(NAME)	:	$(OBJS) $(HEADER)
+	ar rcs $(NAME) $?
 
-clean:
-		@rm -f $(OBJS)
-		@echo "Libft cleaned"
+%.o		:	%.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
+	
+clean	:
+	@rm -f $(OBJS)
 
-fclean:	clean
-		@rm -f $(NAME)
-		@echo "Libft full cleaned"
+fclean	:	clean
+	@$(RM) $(NAME)
 
-re:		fclean all
+re		:	fclean all

@@ -6,7 +6,7 @@
 /*   By: rmontgom <rmontgom@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:11:39 by rmontgom          #+#    #+#             */
-/*   Updated: 2021/10/10 23:13:14 by rmontgom         ###   ########.fr       */
+/*   Updated: 2021/11/03 17:43:45 by rmontgom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,3 @@ void	ft_bzero(void *s, size_t n)
 	while (n--)
 		*str++ = '\0';
 }
-
-/*
-int main() {
-  const char a[] = "hola";
-  ft_bzero(a,2);
-}
-  //a = /0/0la/0
-*/
