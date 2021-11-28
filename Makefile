@@ -50,7 +50,7 @@ $(NAME)	:	$(OBJS) $(HEADER)
 
 %.o		:	%.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
-	
+
 clean	:
 	@rm -f $(OBJS)
 
